@@ -7,9 +7,9 @@
 
 import Foundation
 
-let base = "manganode.herokuapp.com/manga/"
+let base = "https://manganode.herokuapp.com/manga/"
 
-enum Sources : String {
+public enum Sources : String {
     case mangasee = "0"
     case mangakakalot = "1"
     case fanfox = "2"

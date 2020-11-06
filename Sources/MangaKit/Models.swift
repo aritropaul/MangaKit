@@ -8,25 +8,23 @@
 import Foundation
 
 
-
-
 //MARK:- Response Models
-struct MangaUpdateResponse : Codable {
+public struct MangaUpdateResponse : Codable {
     var success: Bool
     var data: [Manga]
 }
 
-struct MangaChapterDataResponse : Codable {
+public struct MangaChapterDataResponse : Codable {
     var success: Bool
     var data: MangaChapterData
 }
 
-struct MangaDataResponse : Codable {
+public struct MangaDataResponse : Codable {
     var success: Bool
     var data: [MangaChapter]
 }
 
-struct MangaSearchResponse : Codable {
+public struct MangaSearchResponse : Codable {
     var success: Bool
     var data: [MangaSearchResult]
 }
@@ -34,7 +32,7 @@ struct MangaSearchResponse : Codable {
 
 
 //MARK:- Data Models
-struct Manga : Codable {
+public struct Manga : Codable {
     var title: String
     var sourceSpecificName: String
     var source: String
@@ -43,34 +41,34 @@ struct Manga : Codable {
     var additionalInfo : AdditionalInfo
 }
 
-struct AdditionalInfo : Codable {
-    var id: String
-    var genres: String
-    var date: String
-    var scanStatus: String
-    var ended: Bool
+public struct AdditionalInfo : Codable {
+    var id: String?
+    var genres: String?
+    var date: String?
+    var scanStatus: String?
+    var ended: Bool?
 }
 
-struct MangaChapterData : Codable {
+public struct MangaChapterData : Codable {
     var imageURL: [String : String]
     var chapterNumber: String
     
-    func pages() -> Int {
+    public func pages() -> Int {
         return imageURL.keys.count
     }
-    func atPage(_ page : Int) -> String {
+    public func atPage(_ page : Int) -> String {
         return imageURL[String(page)] ?? ""
     }
 }
 
-struct MangaChapter : Codable {
+public struct MangaChapter : Codable {
     var chapterNumber: String
     var link: String
     var type: String
     var date: String
 }
 
-struct MangaSearchResult : Codable {
+public struct MangaSearchResult : Codable {
     var imageURL: String
     var mangaURL: String
     var source: String
